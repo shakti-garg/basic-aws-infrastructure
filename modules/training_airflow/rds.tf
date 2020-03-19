@@ -5,6 +5,9 @@ resource "aws_db_instance" "airflow_postgres" {
   instance_class         = "${var.rds_instance_class}"
   vpc_security_group_ids = ["${aws_security_group.airflow_rds.id}"]
   db_subnet_group_name   = "${aws_db_subnet_group.airflow_postgres.name}"
+
+  skip_final_snapshot    = true
+
   tags = "${merge(
     local.common_tags,
     map(

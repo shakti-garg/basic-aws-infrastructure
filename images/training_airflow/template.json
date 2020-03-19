@@ -1,0 +1,29 @@
+{
+  "variables": {
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "ami_name" : "data-eng-airflow-training-{{timestamp}}",
+    "ami_description": "Airflow server for data engineering training",
+    "source_ami_filter" : {
+      "most_recent": true,
+      "owners": ["amazon"],
+      "filters": {
+        "name": "amzn2-ami-hvm-2.0.*-x86_64-gp2"
+      }
+    },
+    "ssh_username": "ec2-user",
+    "instance_type": "t2.micro",
+    "tags" : {
+        "Name": "Data Engineering Training Airflow"
+    }
+  }],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "./scripts/install_airflow.sh",
+      "environment_vars" : [
+      ]
+    }
+  ]
+}

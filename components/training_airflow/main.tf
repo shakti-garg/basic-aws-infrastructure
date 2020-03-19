@@ -39,6 +39,7 @@ module "training_airflow" {
 
   deployment_identifier           = "data-eng-${var.cohort}"
   instance_type                   = "t2.medium"
+  region                          = "${var.aws_region}"
   vpc_id                          = "${data.terraform_remote_state.base_networking.vpc_id}"
   subnet_ids                      = "${data.terraform_remote_state.base_networking.private_subnet_ids}"
   dns_zone_id                     = "${data.terraform_remote_state.base_networking.dns_zone_id}"

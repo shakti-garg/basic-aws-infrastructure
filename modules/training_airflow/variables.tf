@@ -6,6 +6,10 @@ variable "instance_type" {
   description = "EC2 instance type for airflow"
 }
 
+variable "region" {
+  description = "Region in which to build resources."
+}
+
 variable "vpc_id" {
   description = "VPC in which to provision airflow"
 }
