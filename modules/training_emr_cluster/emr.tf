@@ -2,7 +2,7 @@ resource "aws_emr_cluster" "training_cluster" {
   name          = "${local.cluster_name}"
   release_label = "emr-5.15.0"
   applications = [
-    "Spark", "Hue", "Hive", "Ganglia", "Pig", "Flink", "Oozie", "Zeppelin"
+    "Spark", "Livy", "Hue", "Hive", "Ganglia", "Pig", "Flink", "Oozie", "Zeppelin"
   ]
   log_uri = "s3://${aws_s3_bucket.emr_logs.id}/emr/"
 
